@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saravanan M | Full Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#8b5cf6',
+                        accent: '#06b6d4',
+                        dark: '#0f172a',
+                        darker: '#020617',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .skill-bar {
+            transition: width 1.5s ease-out;
+        }
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; transform: translateY(20px); }
+        }
+        .float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .grid-bg {
+            background-image: radial-gradient(circle at 1px 1px, rgba(99, 102, 241, 0.15) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #6366f1, #8b5cf6);
+        }
+        .certificate-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+        }
+        .db-icon {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .tech-stack-card:hover .tech-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        .tech-icon {
+            transition: transform 0.3s ease;
+        }
+        .contact-link {
+            transition: all 0.3s ease;
+        }
+        .contact-link:hover {
+            transform: translateX(5px);
+            background: rgba(99, 102, 241, 0.15);
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+        .social-btn {
+            transition: all 0.3s ease;
+        }
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        }
+    </style>
+<base target="_blank">
+</head>
+<body class="bg-darker text-white overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-card border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="font-display text-2xl font-bold gradient-text">SM</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-300 hover:text-white transition-colors">Home</a>
+                    <a href="#about" class="text-gray-300 hover:text-white transition-colors">About</a>
+                    <a href="#skills" class="text-gray-300 hover:text-white transition-colors">Skills</a>
+                    <a href="#backend" class="text-gray-300 hover:text-white transition-colors">Backend & DB</a>
+                    <a href="#experience" class="text-gray-300 hover:text-white transition-colors">Experience</a>
+                    <a href="#certificates" class="text-gray-300 hover:text-white transition-colors">Certificates</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-white">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-card border-t border-white/10">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#home" class="block text-gray-300 hover:text-white">Home</a>
+                <a href="#about" class="block text-gray-300 hover:text-white">About</a>
+                <a href="#skills" class="block text-gray-300 hover:text-white">Skills</a>
+                <a href="#backend" class="block text-gray-300 hover:text-white">Backend & DB</a>
+                <a href="#experience" class="block text-gray-300 hover:text-white">Experience</a>
+                <a href="#certificates" class="block text-gray-300 hover:text-white">Certificates</a>
+                <a href="#contact" class="block text-gray-300 hover:text-white">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative grid-bg pt-16">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-darker/50 to-darker"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in" style="animation-delay: 0.2s;">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 border border-primary/30 text-primary text-sm font-medium mb-6">
+                        <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                        Available for Internships
+                    </div>
+                    <h1 class="font-display text-5xl md:text-7xl font-bold mb-6">
+                        Hi, I'm <span class="gradient-text">Saravanan</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-400 mb-8 leading-relaxed">
+                        Computer Science Engineering Student at <span class="text-white font-semibold">Panimalar Engineering College</span>
+                    </p>
+                    <p class="text-lg text-gray-500 mb-8">
+                        Full Stack Developer skilled in <span class="text-primary">Backend Architecture</span>, <span class="text-secondary">Database Management</span>, and <span class="text-accent">Frontend Engineering</span>. Experienced in building end-to-end web applications with .NET, React/Redux, and modern database systems.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="px-8 py-4 bg-gradient-to-r from-primary to-secondary rounded-full font-semibold hover:shadow-lg hover:shadow-primary/50 transition-all transform hover:scale-105">
+                            Get In Touch
+                        </a>
+                        <a href="#projects" class="px-8 py-4 border border-white/20 rounded-full font-semibold hover:bg-white/10 transition-all">
+                            View My Work
+                        </a>
+                    </div>
+                    <div class="flex gap-6 mt-8">
+                        <a href="https://github.com/saravanan696" target="_blank" class="text-gray-400 hover:text-primary text-2xl transition-colors"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/saravanan-m-570721338" target="_blank" class="text-gray-400 hover:text-primary text-2xl transition-colors"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:saravanancs696@gmail.com" class="text-gray-400 hover:text-primary text-2xl transition-colors"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="hidden md:flex justify-center fade-in" style="animation-delay: 0.4s;">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-full blur-3xl opacity-30 float"></div>
+                        <div class="relative w-80 h-80 rounded-full overflow-hidden border-4 border-white/10 shadow-2xl">
+                            <div class="w-full h-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
+                                <i class="fas fa-user-graduate text-8xl text-primary/60"></i>
+                            </div>
+                        </div>
+                        <div class="absolute -top-4 -right-4 bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 float" style="animation-delay: 1s;">
+                            <div class="flex items-center gap-2">
+                                <i class="fab fa-react text-accent text-2xl"></i>
+                                <span class="text-sm font-semibold">React</span>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-4 -left-4 bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 float" style="animation-delay: 2s;">
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-database text-secondary text-2xl"></i>
+                                <span class="text-sm font-semibold">SQL/NoSQL</span>
+                            </div>
+                        </div>
+                        <div class="absolute top-1/2 -right-8 bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 float" style="animation-delay: 3s;">
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-server text-primary text-2xl"></i>
+                                <span class="text-sm font-semibold">.NET</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-gray-400 hover:text-white transition-colors">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">About Me</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="glass-card rounded-3xl p-8">
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-graduation-cap text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-1">Education</h3>
+                                <p class="text-gray-400">B.E. Computer Science Engineering</p>
+                                <p class="text-gray-500 text-sm">Panimalar Engineering College</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-laptop-code text-secondary text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-1">Focus</h3>
+                                <p class="text-gray-400">Full Stack Development</p>
+                                <p class="text-gray-500 text-sm">Backend + Database + Frontend</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-database text-accent text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-1">Database Expertise</h3>
+                                <p class="text-gray-400">SQL & NoSQL Systems</p>
+                                <p class="text-gray-500 text-sm">Schema design, optimization, queries</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-lg text-gray-400 leading-relaxed mb-6">
+                        I'm a dedicated Computer Science Engineering student with a strong foundation in programming fundamentals and database management. My journey in tech started with Python and Java, and I've since expanded into full-stack web development with a special focus on backend architecture and database systems.
+                    </p>
+                    <p class="text-lg text-gray-400 leading-relaxed mb-6">
+                        I completed an intensive Software Engineering Job Simulation with Commonwealth Bank through Forage, where I gained hands-on experience with .NET backend development, React/Redux frontend architecture, and professional software engineering practices including code coverage, database integration, and pull request workflows.
+                    </p>
+                    <p class="text-lg text-gray-400 leading-relaxed">
+                        I'm passionate about designing efficient database schemas, writing optimized queries, and building scalable backend APIs that power seamless user experiences.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-dark/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Technical Skills</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto">My technical toolkit spans across frontend, backend, database management, and development practices.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Frontend -->
+                <div class="glass-card rounded-3xl p-8 hover:border-primary/50 transition-all">
+                    <div class="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center mb-6">
+                        <i class="fas fa-desktop text-primary text-3xl"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-6">Frontend</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">React.js</span>
+                                <span class="text-primary">85%</span>
+                            </div>
+                            <div class="w-full bg-white/10 rounded-full h-2">
+                                <div class="skill-bar bg-gradient-to-r from-primary to-secondary h-2 rounded-full" style="width: 0%" data-width="85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Redux</span>
+                                <span class="text-primary">80%</span>
+                            </div>
+                            <div class="w-full bg-white/10 rounded-full h-2">
+                                <div class="skill-bar bg-gradient-to-r from-primary to-secondary h-2 rounded-full" style="width: 0%" data-width="80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">HTML5 / CSS3</span>
+                                <span class="text-primary">90%</span>
+                            </div>
+                            <div class="w-full bg-white/10 rounded-full h-2">
+                                <div class="skill-bar bg-gradient-to-r from-primary to-secondary h-2 rounded-full" style="width: 0%" data-width="90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">JavaScript</span>
+                                <span class="text-primary">85%</span>
+                            </div>
+                            <div class="w-full bg-white/10 rounded-full h-2">
+                                <div class="skill-bar bg-gradient-to-r from-primary to-secondary h-2 rounded-full" style="width: 0%" data-width="85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend -->
+                <div class="glass-card rounded-3xl p-8 hover:border-secondary/50 transition-all">
+                    <div class="w-16 h-16 rounded-2xl bg-secondary/20 flex items-center justify-center mb-6">
+                        <i class="fas fa-server text-secondary text-3xl"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-6">Backend</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">.NET / C#</span>
+                                <span class="text-secondary">80%</span>
+                            </div>
+                            <div class="w-full bg-white/10 rounded-full h-2">
+                                <div class="skill-bar bg-gradient-to-r from-secondary to-primary h-2 rounded-full" style="width: 0%" data-width="80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Python</span>
+                                <span class="text-secondary">75%</span>
+                            </div>
+                            <div class="w-full bg-white/10 rounded-full h-2">
+                                <div class="skill-bar bg-gradient-to-r from-secondary to-primary h-2 rounded-full" style="width: 0%" data-width="75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Java</span>
+                                <span class="text-secondary">70%</span>
+                            </div>
+                            <div class="w-full bg-white/10 rounded-full h-2">
+                                <div class="skill-bar bg-gradient-to-r from-secondary to-primary h-2 rounded-full" style="width: 0%" data-width="70%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">REST APIs</span>
+                                <span class="text-secondary">85%</span>
+                            </div>
+                            <div class="w-full bg-white/10 rounded-full h-2">
+                                <div class="skill-bar bg-gradient-to-r from-secondary to-primary h-2 rounded-full" style="width: 0%" data-width="85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Database & DevOps -->
+                <div class="glass-card rounded-3xl p-8 hover:border-accent/50 transition-all">
+                    <div class="w-16 h-16 rounded-2xl bg-accent/20 flex items-center justify-center mb-6">
+                        <i class="fas fa-database text-accent text-3xl"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-6">Database & Tools</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">SQL / MySQL</span>
+                                <span class="text-accent">80%</span>
+                            </div>
+                            <div class="w-full bg-white/10 rounded-full h-2">
+                                <div class="skill-bar bg-gradient-to-r from-accent to-primary h-2 rounded-full" style="width: 0%" data-width="80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">MongoDB</span>
+                                <span class="text-accent">75%</span>
+                            </div>
+                            <div class="w-full bg-white/10 rounded-full h-2">
+                                <div class="skill-bar bg-gradient-to-r from-accent to-primary h-2 rounded-full" style="width: 0%" data-width="75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Git & GitHub</span>
+                                <span class="text-accent">85%</span>
+                            </div>
+                            <div class="w-full bg-white/10 rounded-full h-2">
+                                <div class="skill-bar bg-gradient-to-r from-accent to-primary h-2 rounded-full" style="width: 0%" data-width="85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Unit Testing</span>
+                                <span class="text-accent">75%</span>
+                            </div>
+                            <div class="w-full bg-white/10 rounded-full h-2">
+                                <div class="skill-bar bg-gradient-to-r from-accent to-primary h-2 rounded-full" style="width: 0%" data-width="75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Programming Languages -->
+            <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="glass-card rounded-2xl p-6 text-center hover:bg-white/10 transition-all">
+                    <i class="fab fa-python text-4xl text-yellow-400 mb-3"></i>
+                    <h4 class="font-semibold">Python</h4>
+                    <p class="text-sm text-gray-500 mt-1">Intermediate</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6 text-center hover:bg-white/10 transition-all">
+                    <i class="fab fa-java text-4xl text-red-400 mb-3"></i>
+                    <h4 class="font-semibold">Java</h4>
+                    <p class="text-sm text-gray-500 mt-1">Basics</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6 text-center hover:bg-white/10 transition-all">
+                    <i class="fab fa-js text-4xl text-yellow-300 mb-3"></i>
+                    <h4 class="font-semibold">JavaScript</h4>
+                    <p class="text-sm text-gray-500 mt-1">Intermediate</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6 text-center hover:bg-white/10 transition-all">
+                    <i class="fas fa-code text-4xl text-purple-400 mb-3"></i>
+                    <h4 class="font-semibold">C#</h4>
+                    <p class="text-sm text-gray-500 mt-1">Intermediate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Backend & Database Section -->
+    <section id="backend" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Backend Process & Database Management</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-4"></div>
+                <p class="text-gray-400 max-w-3xl mx-auto">My expertise in backend development, database architecture, and data management processes that power modern applications.</p>
+            </div>
+
+            <!-- Backend Architecture -->
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="glass-card rounded-3xl p-8 tech-stack-card">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 rounded-2xl bg-primary/20 flex items-center justify-center tech-icon">
+                            <i class="fas fa-server text-primary text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-2xl font-bold">Backend Architecture</h3>
+                            <p class="text-gray-500 text-sm">Server-side logic & API design</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-primary mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold">RESTful API Development</h4>
+                                <p class="text-gray-400 text-sm">Designing and implementing scalable REST APIs with proper HTTP methods, status codes, and JSON responses</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-primary mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold">.NET Backend Services</h4>
+                                <p class="text-gray-400 text-sm">Building robust backend services using ASP.NET Core with MVC architecture and middleware pipelines</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-primary mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold">Authentication & Security</h4>
+                                <p class="text-gray-400 text-sm">Implementing JWT tokens, OAuth2, and secure password hashing for protected endpoints</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-primary mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold">Error Handling & Logging</h4>
+                                <p class="text-gray-400 text-sm">Structured exception handling, centralized logging, and API response standardization</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-3xl p-8 tech-stack-card">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 rounded-2xl bg-secondary/20 flex items-center justify-center tech-icon">
+                            <i class="fas fa-database text-secondary text-2xl db-icon"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-2xl font-bold">Database Management</h3>
+                            <p class="text-gray-500 text-sm">Data storage, retrieval & optimization</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-secondary mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold">Relational Databases (SQL)</h4>
+                                <p class="text-gray-400 text-sm">MySQL database design, complex JOIN queries, stored procedures, and transaction management</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-secondary mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold">NoSQL Databases</h4>
+                                <p class="text-gray-400 text-sm">MongoDB document modeling, CRUD operations, aggregation pipelines, and schema design</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-secondary mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold">Database Normalization</h4>
+                                <p class="text-gray-400 text-sm">Applying 1NF, 2NF, 3NF normalization rules to eliminate redundancy and ensure data integrity</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-secondary mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold">Query Optimization</h4>
+                                <p class="text-gray-400 text-sm">Indexing strategies, query execution plans, and performance tuning for large datasets</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Database Process Flow -->
+            <div class="glass-card rounded-3xl p-8 mb-12">
+                <h3 class="font-display text-2xl font-bold text-center mb-8">Database Management Process Flow</h3>
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                    <div class="text-center">
+                        <div class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-sitemap text-primary text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-sm mb-1">Schema Design</h4>
+                        <p class="text-gray-500 text-xs">ER diagrams, table structures, relationships</p>
+                    </div>
+                    <div class="hidden md:flex items-center justify-center">
+                        <i class="fas fa-arrow-right text-gray-600"></i>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-table text-secondary text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-sm mb-1">Data Modeling</h4>
+                        <p class="text-gray-500 text-xs">Normalization, constraints, data types</p>
+                    </div>
+                    <div class="hidden md:flex items-center justify-center">
+                        <i class="fas fa-arrow-right text-gray-600"></i>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-cogs text-accent text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-sm mb-1">CRUD Operations</h4>
+                        <p class="text-gray-500 text-xs">Create, Read, Update, Delete with validation</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4 mt-4">
+                    <div class="text-center">
+                        <div class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-search text-primary text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-sm mb-1">Query Optimization</h4>
+                        <p class="text-gray-500 text-xs">Indexes, execution plans, performance</p>
+                    </div>
+                    <div class="hidden md:flex items-center justify-center">
+                        <i class="fas fa-arrow-right text-gray-600"></i>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-shield-alt text-secondary text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-sm mb-1">Security & Backup</h4>
+                        <p class="text-gray-500 text-xs">Access control, encryption, backups</p>
+                    </div>
+                    <div class="hidden md:flex items-center justify-center">
+                        <i class="fas fa-arrow-right text-gray-600"></i>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-chart-bar text-accent text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-sm mb-1">Monitoring</h4>
+                        <p class="text-gray-500 text-xs">Analytics, logs, health checks</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech Stack Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div class="glass-card rounded-2xl p-4 text-center hover:bg-white/10 transition-all">
+                    <i class="fas fa-database text-3xl text-blue-400 mb-2"></i>
+                    <h4 class="font-semibold text-sm">MySQL</h4>
+                    <p class="text-xs text-gray-500">Relational DB</p>
+                </div>
+                <div class="glass-card rounded-2xl p-4 text-center hover:bg-white/10 transition-all">
+                    <i class="fas fa-leaf text-3xl text-green-400 mb-2"></i>
+                    <h4 class="font-semibold text-sm">MongoDB</h4>
+                    <p class="text-xs text-gray-500">NoSQL DB</p>
+                </div>
+                <div class="glass-card rounded-2xl p-4 text-center hover:bg-white/10 transition-all">
+                    <i class="fas fa-server text-3xl text-purple-400 mb-2"></i>
+                    <h4 class="font-semibold text-sm">.NET Core</h4>
+                    <p class="text-xs text-gray-500">Backend Framework</p>
+                </div>
+                <div class="glass-card rounded-2xl p-4 text-center hover:bg-white/10 transition-all">
+                    <i class="fas fa-plug text-3xl text-yellow-400 mb-2"></i>
+                    <h4 class="font-semibold text-sm">REST API</h4>
+                    <p class="text-xs text-gray-500">API Architecture</p>
+                </div>
+                <div class="glass-card rounded-2xl p-4 text-center hover:bg-white/10 transition-all">
+                    <i class="fas fa-code-branch text-3xl text-orange-400 mb-2"></i>
+                    <h4 class="font-semibold text-sm">Git</h4>
+                    <p class="text-xs text-gray-500">Version Control</p>
+                </div>
+                <div class="glass-card rounded-2xl p-4 text-center hover:bg-white/10 transition-all">
+                    <i class="fas fa-vial text-3xl text-pink-400 mb-2"></i>
+                    <h4 class="font-semibold text-sm">xUnit/NUnit</h4>
+                    <p class="text-xs text-gray-500">Unit Testing</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-dark/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Experience</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+            </div>
+
+            <div class="relative timeline-line max-w-3xl mx-auto">
+                <!-- Forage Experience -->
+                <div class="relative pl-16 pb-12">
+                    <div class="absolute left-4 top-0 w-5 h-5 rounded-full bg-primary border-4 border-darker"></div>
+                    <div class="glass-card rounded-2xl p-6 hover:border-primary/50 transition-all">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="font-display text-xl font-bold">Software Engineering Job Simulation</h3>
+                                <p class="text-primary font-medium">Commonwealth Bank × Forage</p>
+                            </div>
+                            <span class="text-sm text-gray-500 bg-white/5 px-3 py-1 rounded-full">June 2026</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">Completed an intensive virtual internship program simulating real-world software engineering tasks at Commonwealth Bank, with focus on backend development and database integration.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">.NET Backend</span>
+                            <span class="px-3 py-1 bg-secondary/20 text-secondary rounded-full text-sm">React/Redux</span>
+                            <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-sm">Git Workflow</span>
+                            <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">Unit Testing</span>
+                            <span class="px-3 py-1 bg-secondary/20 text-secondary rounded-full text-sm">Database Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="relative pl-16">
+                    <div class="absolute left-4 top-0 w-5 h-5 rounded-full bg-secondary border-4 border-darker"></div>
+                    <div class="glass-card rounded-2xl p-6 hover:border-secondary/50 transition-all">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="font-display text-xl font-bold">B.E. Computer Science Engineering</h3>
+                                <p class="text-secondary font-medium">Panimalar Engineering College</p>
+                            </div>
+                            <span class="text-sm text-gray-500 bg-white/5 px-3 py-1 rounded-full">Present</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">Pursuing Bachelor's degree in Computer Science with focus on software development, database systems, and full-stack technologies.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">Data Structures</span>
+                            <span class="px-3 py-1 bg-secondary/20 text-secondary rounded-full text-sm">DBMS</span>
+                            <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-sm">OOP</span>
+                            <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">Algorithms</span>
+                            <span class="px-3 py-1 bg-secondary/20 text-secondary rounded-full text-sm">SQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Certificates</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="certificate-card glass-card rounded-3xl p-8 md:p-12 border border-primary/30 transition-all duration-300">
+                    <div class="flex flex-col md:flex-row gap-8 items-center">
+                        <div class="w-32 h-32 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-certificate text-6xl text-white"></i>
+                        </div>
+                        <div class="flex-1 text-center md:text-left">
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-primary text-sm font-medium mb-4">
+                                <i class="fas fa-check-circle"></i>
+                                Verified Certificate
+                            </div>
+                            <h3 class="font-display text-2xl md:text-3xl font-bold mb-2">Software Engineering Job Simulation</h3>
+                            <p class="text-xl text-gray-400 mb-4">Commonwealth Bank — Forage</p>
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+                                <div class="bg-white/5 rounded-xl p-3">
+                                    <i class="fas fa-calendar text-primary mb-1"></i>
+                                    <p class="text-sm text-gray-400">June 2026</p>
+                                </div>
+                                <div class="bg-white/5 rounded-xl p-3">
+                                    <i class="fas fa-building text-secondary mb-1"></i>
+                                    <p class="text-sm text-gray-400">Commonwealth Bank</p>
+                                </div>
+                                <div class="bg-white/5 rounded-xl p-3">
+                                    <i class="fas fa-award text-accent mb-1"></i>
+                                    <p class="text-sm text-gray-400">Forage Certified</p>
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="text-sm text-gray-500"><i class="fas fa-check text-primary mr-2"></i>Modify an Existing .NET Backend</p>
+                                <p class="text-sm text-gray-500"><i class="fas fa-check text-primary mr-2"></i>Modify an Existing React/Redux Frontend</p>
+                                <p class="text-sm text-gray-500"><i class="fas fa-check text-primary mr-2"></i>Modify the Client's Requests</p>
+                                <p class="text-sm text-gray-500"><i class="fas fa-check text-primary mr-2"></i>Cover Your Code! (Unit Testing)</p>
+                                <p class="text-sm text-gray-500"><i class="fas fa-check text-primary mr-2"></i>Create a Pull Request</p>
+                            </div>
+                            <div class="mt-6 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                                <div class="text-sm text-gray-500">
+                                    <p>Enrolment: <span class="text-gray-300">9TfguxgTvyvsHpvHJ</span></p>
+                                    <p>User: <span class="text-gray-300">6911737b9c0596e22dff5724</span></p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-sm text-gray-500">Issued by</p>
+                                    <p class="font-semibold">Tom Brunskill, Co-Founder of Forage</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-dark/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Featured Projects</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-4"></div>
+                <p class="text-gray-400">Projects showcasing full-stack development with backend & database integration</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass-card rounded-2xl overflow-hidden group hover:border-primary/50 transition-all">
+                    <div class="h-48 bg-gradient-to-br from-primary/30 to-secondary/30 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                        <i class="fas fa-shopping-cart text-6xl text-primary/60"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold mb-2">E-Commerce Platform</h3>
+                        <p class="text-gray-400 text-sm mb-4">Full-stack e-commerce with .NET backend, SQL database, and React frontend. Features user auth, product catalog, and order management.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-primary/20 text-primary rounded text-xs">React</span>
+                            <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">.NET</span>
+                            <span class="px-2 py-1 bg-accent/20 text-accent rounded text-xs">SQL</span>
+                            <span class="px-2 py-1 bg-primary/20 text-primary rounded text-xs">Redux</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="https://github.com/saravanan696" target="_blank" class="text-primary hover:text-white transition-colors"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" class="text-primary hover:text-white transition-colors"><i class="fas fa-external-link-alt"></i> Live</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl overflow-hidden group hover:border-secondary/50 transition-all">
+                    <div class="h-48 bg-gradient-to-br from-secondary/30 to-accent/30 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                        <i class="fas fa-tasks text-6xl text-secondary/60"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold mb-2">Task Management API</h3>
+                        <p class="text-gray-400 text-sm mb-4">RESTful API with MongoDB for task tracking. Includes JWT authentication, role-based access, and real-time updates via WebSocket.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-primary/20 text-primary rounded text-xs">Node.js</span>
+                            <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">MongoDB</span>
+                            <span class="px-2 py-1 bg-accent/20 text-accent rounded text-xs">Express</span>
+                            <span class="px-2 py-1 bg-primary/20 text-primary rounded text-xs">JWT</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="https://github.com/saravanan696" target="_blank" class="text-primary hover:text-white transition-colors"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" class="text-primary hover:text-white transition-colors"><i class="fas fa-external-link-alt"></i> Live</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl overflow-hidden group hover:border-accent/50 transition-all">
+                    <div class="h-48 bg-gradient-to-br from-accent/30 to-primary/30 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                        <i class="fas fa-chart-line text-6xl text-accent/60"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold mb-2">Analytics Dashboard</h3>
+                        <p class="text-gray-400 text-sm mb-4">Data visualization dashboard with Python backend, MySQL analytics database, and interactive React charts. Features data import/export.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-primary/20 text-primary rounded text-xs">React</span>
+                            <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">Python</span>
+                            <span class="px-2 py-1 bg-accent/20 text-accent rounded text-xs">MySQL</span>
+                            <span class="px-2 py-1 bg-primary/20 text-primary rounded text-xs">D3.js</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="https://github.com/saravanan696" target="_blank" class="text-primary hover:text-white transition-colors"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" class="text-primary hover:text-white transition-colors"><i class="fas fa-external-link-alt"></i> Live</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Get In Touch</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-4"></div>
+                <p class="text-gray-400">Open for internships and collaboration opportunities</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                <div class="space-y-6">
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/saravanan-m-570721338" target="_blank" class="contact-link glass-card rounded-2xl p-6 flex items-center gap-4 block border border-white/10">
+                        <div class="w-14 h-14 rounded-xl bg-[#0077b5]/20 flex items-center justify-center flex-shrink-0">
+                            <i class="fab fa-linkedin text-[#0077b5] text-2xl"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="font-semibold text-lg">LinkedIn</h4>
+                            <p class="text-gray-400 text-sm truncate">linkedin.com/in/saravanan-m-570721338</p>
+                        </div>
+                        <i class="fas fa-external-link-alt text-gray-500"></i>
+                    </a>
+
+                    <!-- GitHub -->
+                    <a href="https://github.com/saravanan696" target="_blank" class="contact-link glass-card rounded-2xl p-6 flex items-center gap-4 block border border-white/10">
+                        <div class="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
+                            <i class="fab fa-github text-white text-2xl"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="font-semibold text-lg">GitHub</h4>
+                            <p class="text-gray-400 text-sm truncate">github.com/saravanan696</p>
+                        </div>
+                        <i class="fas fa-external-link-alt text-gray-500"></i>
+                    </a>
+
+                    <!-- Email -->
+                    <a href="mailto:saravanancs696@gmail.com" class="contact-link glass-card rounded-2xl p-6 flex items-center gap-4 block border border-white/10">
+                        <div class="w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-envelope text-primary text-2xl"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="font-semibold text-lg">Email</h4>
+                            <p class="text-gray-400 text-sm truncate">saravanancs696@gmail.com</p>
+                        </div>
+                        <i class="fas fa-paper-plane text-gray-500"></i>
+                    </a>
+
+                    <!-- Location -->
+                    <div class="glass-card rounded-2xl p-6 flex items-center gap-4 border border-white/10">
+                        <div class="w-14 h-14 rounded-xl bg-accent/20 flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-map-marker-alt text-accent text-2xl"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="font-semibold text-lg">Location</h4>
+                            <p class="text-gray-400 text-sm">Chennai, Tamil Nadu, India</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <form class="glass-card rounded-2xl p-8 space-y-6 border border-white/10">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Name</label>
+                        <input type="text" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors" placeholder="Your name">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Email</label>
+                        <input type="email" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors" placeholder="your@email.com">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Message</label>
+                        <textarea rows="4" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors resize-none" placeholder="Your message..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-4 bg-gradient-to-r from-primary to-secondary rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/50 transition-all transform hover:scale-[1.02]">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+
+            <!-- Social Buttons Row -->
+            <div class="mt-12 flex justify-center gap-6">
+                <a href="https://github.com/saravanan696" target="_blank" class="social-btn glass-card px-8 py-4 rounded-full flex items-center gap-3 border border-white/10 hover:border-primary/50">
+                    <i class="fab fa-github text-xl"></i>
+                    <span class="font-semibold">GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/saravanan-m-570721338" target="_blank" class="social-btn glass-card px-8 py-4 rounded-full flex items-center gap-3 border border-white/10 hover:border-[#0077b5]/50">
+                    <i class="fab fa-linkedin text-xl text-[#0077b5]"></i>
+                    <span class="font-semibold">LinkedIn</span>
+                </a>
+                <a href="mailto:saravanancs696@gmail.com" class="social-btn glass-card px-8 py-4 rounded-full flex items-center gap-3 border border-white/10 hover:border-primary/50">
+                    <i class="fas fa-envelope text-xl text-primary"></i>
+                    <span class="font-semibold">Email</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex items-center gap-2">
+                    <span class="font-display text-2xl font-bold gradient-text">SM</span>
+                    <span class="text-gray-500">|</span>
+                    <span class="text-gray-400">Saravanan M</span>
+                </div>
+                <p class="text-gray-500 text-sm">© 2026 Saravanan M. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <a href="https://github.com/saravanan696" target="_blank" class="text-gray-400 hover:text-primary transition-colors text-xl"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/saravanan-m-570721338" target="_blank" class="text-gray-400 hover:text-[#0077b5] transition-colors text-xl"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:saravanancs696@gmail.com" class="text-gray-400 hover:text-primary transition-colors text-xl"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Skill bars animation
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px'
+        };
+
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bars = entry.target.querySelectorAll('.skill-bar');
+                    bars.forEach(bar => {
+                        const width = bar.getAttribute('data-width');
+                        bar.style.width = width;
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('#skills .glass-card').forEach(card => {
+            skillObserver.observe(card);
+        });
+
+        // Fade in animation on scroll
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            fadeObserver.observe(card);
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-darker/90');
+            } else {
+                nav.classList.remove('bg-darker/90');
+            }
+        });
+    </script>
+</body>
+</html>
